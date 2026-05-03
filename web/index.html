@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tic Tac Tie Break</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Tic Tac Tie Break</h1>
+      <p>Fill the board to expand it. First to get <span id="streak-desc">3</span> in a row wins.</p>
+    </header>
+
+    <div id="turn-order"></div>
+
+    <div id="status-bar">
+      <span id="status-text">Player</span>
+      <span id="player-badge" class="player-badge X">X</span>
+      <span id="status-suffix">'s turn</span>
+      <span id="streak-badge" class="streak-badge" title="Win streak required">3-in-a-row</span>
+      <span id="player-count-badge" class="player-count-badge" title="Number of players">2P</span>
+    </div>
+
+    <div id="winner-banner"></div>
+
+    <div id="expand-notice">Board expanded to <span id="board-size-notice"></span></div>
+
+    <div id="expand-prompt-top" class="expand-prompt hidden">
+      <span class="expand-prompt-text">Still no winner?! Board expanded to <strong id="expand-prompt-size-top"></strong>.</span>
+      <span class="expand-prompt-question">Would you like to change how many in a row you need to win?</span>
+      <div class="expand-prompt-input-row">
+        <label for="streak-input-top">In-a-row needed:</label>
+        <input type="number" id="streak-input-top" class="streak-input-inline" min="3" max="99" value="3" aria-label="Required streak (top prompt)" />
+      </div>
+      <span class="expand-prompt-dismiss">Click anywhere here to continue playing</span>
+    </div>
+
+    <div id="board-wrapper">
+      <div id="board"></div>
+    </div>
+
+    <div id="expand-prompt-bottom" class="expand-prompt hidden">
+      <span class="expand-prompt-text">Still no winner?!</span>
+      <span class="expand-prompt-question">Change how many in a row needed to win?</span>
+      <div class="expand-prompt-input-row">
+        <label for="streak-input-bottom">In-a-row needed:</label>
+        <input type="number" id="streak-input-bottom" class="streak-input-inline" min="3" max="99" value="3" aria-label="Required streak (bottom prompt)" />
+      </div>
+      <span class="expand-prompt-dismiss">Click anywhere here to continue playing</span>
+    </div>
+
+    <div id="mode-section">
+      <span class="mode-label">Expand by</span>
+      <div id="mode-toggle" role="group" aria-label="Expand mode">
+        <button data-mode="by2" class="mode-btn active">+2 (3→5→7…)</button>
+        <button data-mode="by1" class="mode-btn">+1 (3→4→5…)</button>
+      </div>
+    </div>
+
+    <div id="win-mode-section">
+      <span class="mode-label">Win condition</span>
+      <div id="win-mode-toggle" role="group" aria-label="Win condition mode">
+        <button data-winmode="fixed"   class="mode-btn active">Fixed (3-in-a-row)</button>
+        <button data-winmode="scaling" class="mode-btn">Scaling (+1 per expansion)</button>
+        <button data-winmode="manual"  class="mode-btn">Manual</button>
+      </div>
+      <div id="manual-streak-section">
+        <div class="streak-input-row">
+          <label for="streak-input">In-a-row needed:</label>
+          <input
+            type="number"
+            id="streak-input"
+            min="3"
+            max="99"
+            value="3"
+            disabled
+            aria-label="Required streak length"
+          />
+          <span id="streak-input-hint" class="streak-hint">Unlocks after each expansion</span>
+        </div>
+        <label class="house-rule-label" id="house-rule-label">
+          <input type="checkbox" id="house-rule-no-decrease" />
+          <span class="house-rule-text">House rule: streak can only increase, never decrease</span>
+        </label>
+      </div>
+    </div>
+
+    <div id="controls">
+      <button class="ctrl primary" id="new-game-btn">New Game</button>
+      <button class="ctrl" id="two-player-btn">2-Player</button>
+      <button class="ctrl" id="three-player-btn">3-Player ($)</button>
+    </div>
+
+    <script type="module" src="app.js?v=5"></script>
+  </body>
+</html>
