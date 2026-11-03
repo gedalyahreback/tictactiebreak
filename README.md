@@ -19,7 +19,7 @@ Published game: https://tic-tac-tiebreak.gedalyahreback.chatgpt.site (currently 
 - Quick play begins on a 3 × 3 board with 3 in a row required to win.
 - A full board without a winner expands symmetrically; existing marks remain centered and the turn passes to the next player.
 - For 2–4 players, expansion adds either **1 row and column on every side** (3 → 5 → 7 board dimensions) or **2 on every side** (3 → 7 → 11 board dimensions).
-- Five-player games always add **3 rows and columns on every side** (3 → 9 → 15 board dimensions).
+- Five-player games default to **5 × 5**, with **6 × 6** as the other starting-size option. They always add **3 rows and columns on every side** (5 → 11 → 17, or 6 → 12 → 18 board dimensions).
 - **All expansion options always add 2 to the winning length per expansion**, so a starting target of 3 becomes 5, then 7, including five-player games. Fixed targets are no longer offered in the web game.
 - Win horizontally, vertically, or diagonally. Custom games allow different starting board sizes and initial winning lengths.
 
