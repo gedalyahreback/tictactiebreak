@@ -3,6 +3,8 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "test": "node --test shared/gameLogic.test.js"
+    "test": "node --test shared/gameLogic.test.js tests/game.test.cjs",
+    "test:web": "node --test tests/game.test.cjs",
+    "test:legacy": "node --test shared/gameLogic.test.js"
   }
 }
